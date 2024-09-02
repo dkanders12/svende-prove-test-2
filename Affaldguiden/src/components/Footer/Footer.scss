@@ -1,0 +1,26 @@
+#footerscss {
+  background-image: url(../../assets/Footer/Footer-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  height: 363px;
+  width: 100%;
+  padding: 0px 100px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  #icons-footer {
+    font-size: 50px;
+    width: 200px;
+    justify-content: space-between;
+    display: flex;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  #play {
+    display: flex;
+    gap: 20px;
+  }
+}
