@@ -1,0 +1,52 @@
+#colorgradient {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: start;
+  background: linear-gradient(180deg, #06682d 20%, #ffffff 100%);
+  #gradient {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 30px;
+    width: 80%;
+    height: 742px;
+    background-image: linear-gradient(
+        180deg,
+        rgba(6, 104, 45, 0.2) 50%,
+        rgba(255, 255, 255, 1) 100%
+      ),
+      url("../../../assets/malerspande.jpg"); /* Background image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Cover to ensure the image covers the container */
+  }
+
+  #gradient #flow {
+    background-color: white;
+    height: 341px;
+    width: 526px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3); /* Adding transparency to the shadow */
+    bottom: 0;
+    display: flex;
+    padding: 60px 20px;
+    flex-direction: column;
+
+    h3 {
+      font-size: 35px;
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 50px;
+    }
+
+    .first-word {
+      color: black; /* First word in black */
+    }
+
+    .rest-words {
+      color: green; /* Remaining words in green */
+    }
+  }
+}
