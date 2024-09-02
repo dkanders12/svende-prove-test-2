@@ -1,52 +1,115 @@
-#colorgradient {
+section {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: start;
-  background: linear-gradient(180deg, #06682d 20%, #ffffff 100%);
-  #gradient {
+  flex-direction: column;
+
+  align-items: center;
+  #colorgradient {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    background: linear-gradient(180deg, #06682d 20%, #ffffff 100%);
+    #gradient {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      gap: 30px;
+      width: 80%;
+      height: 742px;
+      background-image: linear-gradient(
+          180deg,
+          rgba(6, 104, 45, 0.2) 50%,
+          rgba(255, 255, 255, 1) 100%
+        ),
+        url("../../../assets/malerspande.jpg"); /* Background image */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover; /* Cover to ensure the image covers the container */
+    }
+
+    #gradient #flow {
+      background-color: white;
+      height: 341px;
+      width: 526px;
+      border-radius: 5px;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3); /* Adding transparency to the shadow */
+      bottom: 0;
+      display: flex;
+      padding: 60px 20px;
+      flex-direction: column;
+
+      h3 {
+        font-size: 35px;
+      }
+      p {
+        margin-top: 10px;
+      }
+
+      .first-word {
+        color: black; /* First word in black */
+      }
+
+      .rest-words {
+        color: green; /* Remaining words in green */
+      }
+    }
+  }
+  #middle {
     display: flex;
     justify-content: center;
-    align-items: end;
-    gap: 30px;
-    width: 80%;
-    height: 742px;
-    background-image: linear-gradient(
-        180deg,
-        rgba(6, 104, 45, 0.2) 50%,
-        rgba(255, 255, 255, 1) 100%
-      ),
-      url("../../../assets/malerspande.jpg"); /* Background image */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; /* Cover to ensure the image covers the container */
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: #d8eadb;
+    margin-top: 80px;
+    #flow2 {
+      display: flex;
+      gap: 100px;
+      justify-content: center;
+      align-items: center;
+
+      #sideleft {
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        width: 400px;
+      }
+      h3 {
+        font-size: 35px;
+      }
+      img {
+        width: 451px;
+      }
+      .first-word {
+        color: black; /* First word in black */
+      }
+
+      .rest-words {
+        color: green; /* Remaining words in green */
+      }
+    }
   }
-
-  #gradient #flow {
-    background-color: white;
-    height: 341px;
-    width: 526px;
-    border-radius: 5px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3); /* Adding transparency to the shadow */
-    bottom: 0;
+  #bottom {
     display: flex;
-    padding: 60px 20px;
-    flex-direction: column;
-
-    h3 {
-      font-size: 35px;
-    }
-    p {
-      margin-top: 10px;
-      margin-bottom: 50px;
-    }
-
-    .first-word {
-      color: black; /* First word in black */
-    }
-
-    .rest-words {
-      color: green; /* Remaining words in green */
+    justify-content: center;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 70px;
+    #flow3 {
+      display: flex;
+      img {
+        width: 540px;
+      }
+      p {
+        margin: 40px 20px 0px 20px;
+        font-size: 25px;
+        color: green;
+      }
+      h3 {
+        font-size: 35px;
+        margin: 120px 0px 0px 20px;
+      }
+      .icon-link {
+        margin-left: 20px;
+      }
     }
   }
 }

@@ -8,7 +8,7 @@ const Cards = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { articles } = await fetchArticleData(4); // Fetch 4 articles
+      const { articles } = await fetchArticleData(5); // Fetch 4 articles
       setArticles(articles);
     };
 
@@ -41,19 +41,41 @@ const Cards = () => {
         </article>
       </div>
 
-      <article>
+      <article id="middle">
+        {articles.slice(4, 5).map((article, index) => {
+          const { firstWord, rest } = splitTitle(article.title);
+          return (
+            <div id="flow2" key={index}>
+              <div id="sideleft">
+                <h3>
+                  <span className="first-word">{firstWord}</span>
+                  {rest && <span className="rest-words"> {rest}</span>}
+                </h3>
+                <p>{article.teaser}</p>
+                <FaArrowCircleRight className="icon-link" />
+              </div>
+
+              <img src={article.image_url} alt="" />
+            </div>
+          );
+        })}
+      </article>
+      <article id="bottom">
         {articles.slice(2, 3).map((article, index) => {
           const { firstWord, rest } = splitTitle(article.title);
           return (
-            <div id="flow" key={index}>
-              <h3>
-                <span className="first-word">{firstWord}</span>
-                {rest && <span className="rest-words"> {rest}</span>}
-              </h3>
-              <p>{article.teaser}</p>
-              <img src={article.image_url} alt="" />
-
-              <FaArrowCircleRight className="icon-link" />
+            <div id="flow3" key={index}>
+              <div>
+                <img src={article.image_url} alt="" />
+              </div>
+              <div id="sideright">
+                <p>{article.teaser}</p>{" "}
+                <h3>
+                  <span className="first-word">{firstWord}</span>
+                  {rest && <span className="rest-words"> {rest}</span>}
+                </h3>
+                <FaArrowCircleRight className="icon-link" />
+              </div>
             </div>
           );
         })}
