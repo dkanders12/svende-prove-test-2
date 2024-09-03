@@ -1,7 +1,8 @@
 import React from "react";
+import SortingGuide from "../components/Sorting/sorting";
 
 const Sortering = () => {
-  return <div>hej 2</div>;
+  return <SortingGuide></SortingGuide>;
 };
 
 export default Sortering;

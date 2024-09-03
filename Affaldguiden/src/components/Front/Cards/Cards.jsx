@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchArticleData } from "../../../provider/Fetch-forside";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./Cards.scss";
 import { FaArrowCircleRight } from "react-icons/fa";
 
@@ -8,7 +9,7 @@ const Cards = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { articles } = await fetchArticleData(5); // Fetch 4 articles
+      const { articles } = await fetchArticleData(5); // Fetch 5 articles
       setArticles(articles);
     };
 
@@ -34,7 +35,10 @@ const Cards = () => {
                 </h3>
                 <p>{article.teaser}</p>
 
-                <FaArrowCircleRight className="icon-link" />
+                {/* Wrap the icon with Link to navigate to the article details page */}
+                <Link to={`/article/${article.id}`}>
+                  <FaArrowCircleRight className="icon-link" />
+                </Link>
               </div>
             );
           })}
@@ -52,7 +56,11 @@ const Cards = () => {
                   {rest && <span className="rest-words"> {rest}</span>}
                 </h3>
                 <p>{article.teaser}</p>
-                <FaArrowCircleRight className="icon-link" />
+
+                {/* Link to the article details page */}
+                <Link to={`/article/${article.id}`}>
+                  <FaArrowCircleRight className="icon-link" />
+                </Link>
               </div>
 
               <img src={article.image_url} alt="" />
@@ -60,6 +68,7 @@ const Cards = () => {
           );
         })}
       </article>
+
       <article id="bottom">
         {articles.slice(2, 3).map((article, index) => {
           const { firstWord, rest } = splitTitle(article.title);
@@ -69,12 +78,16 @@ const Cards = () => {
                 <img src={article.image_url} alt="" />
               </div>
               <div id="sideright">
-                <p>{article.teaser}</p>{" "}
+                <p>{article.teaser}</p>
                 <h3>
                   <span className="first-word">{firstWord}</span>
                   {rest && <span className="rest-words"> {rest}</span>}
                 </h3>
-                <FaArrowCircleRight className="icon-link" />
+
+                {/* Link to the article details page */}
+                <Link to={`/article/${article.id}`}>
+                  <FaArrowCircleRight className="icon-link" />
+                </Link>
               </div>
             </div>
           );

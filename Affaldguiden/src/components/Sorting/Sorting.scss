@@ -1,0 +1,83 @@
+.sorting-guide {
+  text-align: center;
+  margin-bottom: 50px;
+  background: linear-gradient(180deg, #06682d 0%, #ffffff 100%);
+
+  #gradient {
+    background: linear-gradient(to bottom, #e0f7df, #f2f9f0);
+    width: 80%;
+    position: relative;
+    padding-top: 150px;
+    margin: 0 auto;
+    border-radius: 10px;
+
+    h1 {
+      color: #2c662d;
+      font-size: 2.5em;
+    }
+
+    #top-left {
+      position: absolute;
+      left: 50px;
+      top: 50px;
+    }
+  }
+
+  .subtitle {
+    color: #3a7c3a;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 800px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; // Skift til en enkelt kolonne på små skærme
+    }
+  }
+
+  .category-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    width: 326px;
+    height: 182px;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .category-title {
+        flex: 1;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: white;
+        text-align: left;
+        padding-left: 10px;
+      }
+    }
+
+    .category-image {
+      width: 160px;
+      height: 140px;
+      margin-left: 10px;
+      object-fit: contain;
+    }
+  }
+}

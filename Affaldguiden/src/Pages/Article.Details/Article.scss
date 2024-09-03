@@ -1,0 +1,27 @@
+.article-details {
+  background: linear-gradient(180deg, #06682d 0%, #ffffff 100%);
+
+  .article-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #ffffff 10%, #d8eadb 100%);
+    width: 80%;
+  }
+  #textContainer {
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    div {
+      width: 70%;
+      padding: 60px;
+      p {
+        margin-top: 10px;
+      }
+      h2 {
+        margin-top: 30px;
+      }
+    }
+  }
+}
