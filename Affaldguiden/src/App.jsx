@@ -7,6 +7,7 @@ import Sortering from "./Pages/Sortering";
 import ArticleDetails from "./Pages/Article.Details/Article";
 import SectionDetails from "./components/SortingDetails/Sortingdetails";
 import GenbrugSteder from "./Pages/GenbrugSteder";
+import RecyclingSiteDetails from "./Pages/Genbrug.Details/GenbrugDetails";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
         <Route path="/genbrugsstationer" element={<GenbrugSteder />}></Route>
         <Route path="/article/:id" element={<ArticleDetails />}></Route>{" "}
         <Route path="/section/:sectionId" element={<SectionDetails />}></Route>
+        <Route
+          path="/site-details/:id"
+          element={<RecyclingSiteDetails />}
+        ></Route>
       </Routes>
       <Footer></Footer>
     </>

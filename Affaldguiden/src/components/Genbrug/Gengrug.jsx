@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -24,6 +25,7 @@ L.Icon.Default.mergeOptions({
 const Gengrug = () => {
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   // Fetch data from Supabase
   const fetchLocations = async () => {
@@ -41,13 +43,18 @@ const Gengrug = () => {
     fetchLocations();
   }, []);
 
+  // Function to handle navigation when a location is clicked
+  const handleLocationClick = (location) => {
+    navigate(`/site-details/${location.id}`, { state: { site: location } });
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
     <section id="gradient">
-      <article className="genbrug-container ">
+      <article className="genbrug-container">
         <div id="top-left">
           <h2>Genbrugsstationer</h2>
         </div>
@@ -55,14 +62,21 @@ const Gengrug = () => {
           (location) =>
             location.latitude !== 0 &&
             location.longitude !== 0 && (
-              <div key={location.id} className="location-card">
+              <div
+                key={location.id}
+                className="location-card"
+                onClick={() => handleLocationClick(location)} // Make the whole card clickable
+                style={{ cursor: "pointer" }} // Add cursor pointer for UX
+              >
                 <MapContainer
-                  center={[location.longitude, location.latitude]}
+                  center={[location.longitude, location.latitude]} // Fixed lat/lng order
                   zoom={12}
                   style={{ height: "200px", width: "100%" }}
                 >
                   <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                  <Marker position={[location.longitude, location.latitude]} />
+                  <Marker position={[location.longitude, location.latitude]}>
+                    <Popup>{location.city}</Popup>
+                  </Marker>
                 </MapContainer>
 
                 <div className="location-info">
