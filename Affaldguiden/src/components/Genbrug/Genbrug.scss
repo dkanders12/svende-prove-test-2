@@ -2,12 +2,71 @@
   margin-bottom: 50px;
   background: linear-gradient(180deg, #06682d 0%, #ffffff 100%);
 
-  #stederContainer {
-    width: 80%;
-    margin: 0 auto;
-
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  .genbrug-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    padding: 20px;
     background-color: white;
+    width: 80%;
+    padding-top: 150px;
+    justify-items: center;
+  }
+
+  .location-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    width: 70%;
+    margin-top: 40px;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .leaflet-container {
+      border-bottom: 2px solid #eaeaea;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .location-info {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h3 {
+        margin: 0 0 10px;
+        font-size: 1.4em;
+        color: #333;
+      }
+
+      .location-description {
+        margin-bottom: 15px;
+        font-size: 1em;
+        color: #777;
+      }
+
+      .location-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .rating {
+          color: #f5c518;
+          font-size: 1.2em;
+        }
+
+        .extra-info {
+          color: #888;
+          font-size: 0.9em;
+        }
+      }
+    }
   }
 }

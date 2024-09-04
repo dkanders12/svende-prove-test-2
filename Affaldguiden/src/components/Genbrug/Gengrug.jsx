@@ -47,33 +47,32 @@ const Gengrug = () => {
 
   return (
     <section id="gradient">
-      <article id="stederContainer">
+      <article className="genbrug-container ">
+        <div id="top-left">
+          <h2>Genbrugsstationer</h2>
+        </div>
         {locations.map(
           (location) =>
             location.latitude !== 0 &&
             location.longitude !== 0 && (
-              <div key={location.id} className="location-map">
-                <h3>{location.city}</h3>
+              <div key={location.id} className="location-card">
                 <MapContainer
                   center={[location.longitude, location.latitude]}
-                  zoom={10}
-                  style={{
-                    height: "300px",
-                    width: "500px",
-                    marginBottom: "20px",
-                  }}
+                  zoom={12}
+                  style={{ height: "200px", width: "100%" }}
                 >
                   <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                  <Marker position={[location.longitude, location.latitude]}>
-                    <Popup>
-                      <div>
-                        <h4>{location.city}</h4>
-                        <p>Email: {location.email}</p>
-                        <p>Phone: {location.phone}</p>
-                      </div>
-                    </Popup>
-                  </Marker>
+                  <Marker position={[location.longitude, location.latitude]} />
                 </MapContainer>
+
+                <div className="location-info">
+                  <h3>{location.city}</h3>
+                  <p className="location-description">Beskrivelse</p>
+                  <div className="location-footer">
+                    <span className="rating">⭐⭐⭐⭐⭐</span>
+                    <span className="extra-info">Åbningstider</span>
+                  </div>
+                </div>
               </div>
             )
         )}
