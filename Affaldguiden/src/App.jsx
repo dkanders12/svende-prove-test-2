@@ -6,6 +6,7 @@ import Forside from "./Pages/Forside";
 import Sortering from "./Pages/Sortering";
 import ArticleDetails from "./Pages/Article.Details/Article";
 import SectionDetails from "./components/SortingDetails/Sortingdetails";
+import GenbrugSteder from "./Pages/GenbrugSteder";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Forside />}></Route>
         <Route path="/sorteringguide" element={<Sortering />}></Route>
+        <Route path="/genbrugsstationer" element={<GenbrugSteder />}></Route>
         <Route path="/article/:id" element={<ArticleDetails />}></Route>{" "}
         <Route path="/section/:sectionId" element={<SectionDetails />}></Route>
       </Routes>
