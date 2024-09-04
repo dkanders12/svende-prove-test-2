@@ -6,14 +6,20 @@ const SectionDetails = () => {
   const { section } = location.state;
 
   return (
-    <section>
+    <section
+      className="section-details"
+      style={{
+        marginBottom: "50px",
+        background: `linear-gradient(180deg, ${section.color} 0%, #ffffff 100%)`, // Use section color in gradient
+      }}
+    >
       <h1>{section.title}</h1>
       <p>{section.description}</p>
-      <div className="category-grid">
+      <div className="category-type">
         {section.categories.map((category) => (
           <div key={category.id} className="category-card">
             <h2>{category.title}</h2>
-            <img src={category.image_url} alt={category.title} />
+            <img src={category.icon_url} alt={category.title} />
           </div>
         ))}
       </div>

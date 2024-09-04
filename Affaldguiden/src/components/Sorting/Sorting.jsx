@@ -21,19 +21,38 @@ const SortingGuide = () => {
     console.log("Clicked Section:", section);
     navigate(`/section/${section.id}`, { state: { section } });
   };
+  const backgroundColors = [
+    "#660099",
+    "#017EC0",
+    "#06682D",
+    "#28A745",
+    "#C4A167",
+    "#F18700",
+    "#7F652B",
+    "#951C3F",
+    "#6666CC",
+    "#2B2C2E",
+  ];
 
   return (
     <section className="sorting-guide">
       <article id="gradient">
-        {trashData.map((section) => (
+        <div id="top-left">
+          <h2>Sorteringsguide</h2>
+          <p>Vælg en sektion</p>
+        </div>
+        {trashData.map((section, index) => (
           <div
+            id="sorting"
             key={section.id}
             onClick={() => handleSectionClick(section)}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              backgroundColor:
+                backgroundColors[index % backgroundColors.length],
+            }}
           >
             <h1>{section.title}</h1>
-            <p className="subtitle">{section.description}</p>
-
             <img
               src={section.image_url}
               alt={section.title}
