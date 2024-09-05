@@ -8,6 +8,7 @@ import ArticleDetails from "./Pages/Article.Details/Article";
 import SectionDetails from "./components/SortingDetails/Sortingdetails";
 import GenbrugSteder from "./Pages/GenbrugSteder";
 import RecyclingSiteDetails from "./Pages/Genbrug.Details/GenbrugDetails";
+import ArtikelSite from "./Pages/ArtikelSite";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           path="/site-details/:id"
           element={<RecyclingSiteDetails />}
         ></Route>
+        <Route path="/artikler" element={<ArtikelSite />}></Route>
       </Routes>
       <Footer></Footer>
     </>

@@ -1,40 +1,37 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { FaStar, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Comments from "../../components/Comment/Comment";
 import "./RecyclingSiteDetails.scss";
 
 const RecyclingSiteDetails = () => {
   const location = useLocation();
   const { site } = location.state;
 
-  // Debugging lat/lng
-  console.log("Latitude:", site.latitude, "Longitude:", site.longitude);
-
   return (
-    <section className="recycling-site-details">
+    <section className="gradient">
       <div className="map-container">
         <MapContainer
-          center={[site.longitude || 57.05, site.latitude || 9.95]} // Default fallback values
+          center={[site.longitude, site.latitude]}
           zoom={13}
-          style={{ height: "300px", width: "100%" }}
+          style={{ height: "600px", width: "100%" }}
+          dragging={false} // Disable dragging
+          touchZoom={false} // Disable touch-based zooming
+          scrollWheelZoom={false} // Disable zoom with scroll wheel
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          {site.latitude && site.longitude && (
-            <Marker position={[site.longitude, site.latitude]}>
-              <Popup>{site.city}</Popup>
-            </Marker>
-          )}
+          <Marker position={[site.longitude, site.latitude]}>
+            <Popup>{site.city}</Popup>
+          </Marker>
         </MapContainer>
       </div>
 
-      <div className="site-info">
-        <h1>{site.city}</h1>
-        <div className="site-address">
-          <p>
-            <FaMapMarkerAlt /> {site.address}
-          </p>
+      <article className="site-info">
+        <div>
+          <h2>{site.city}</h2>
+
+          <p>{site.address}</p>
           <p>
             {site.zipcode} {site.city}, {site.country}
           </p>
@@ -50,7 +47,10 @@ const RecyclingSiteDetails = () => {
             <FaStar key={index} color={index < 4 ? "#ffc107" : "#e4e5e9"} />
           ))}
         </div>
-      </div>
+      </article>
+
+      {/* Render the Comments component and pass site.id as the siteId */}
+      <Comments siteId={site.id} />
     </section>
   );
 };

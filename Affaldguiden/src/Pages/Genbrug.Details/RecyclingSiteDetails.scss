@@ -1,4 +1,27 @@
-.map-container {
-  min-height: 300px;
+.gradient {
+  margin-bottom: 50px;
+  background: linear-gradient(180deg, #06682d 0%, #ffffff 100%);
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .map-container {
+    min-height: 600px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+  }
+  .site-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    width: 80%;
+    background-color: white;
+    h2 {
+      font-size: 35px;
+      margin-bottom: 7px;
+    }
+  }
 }
