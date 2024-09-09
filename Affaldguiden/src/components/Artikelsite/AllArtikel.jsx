@@ -28,28 +28,34 @@ const Articles = () => {
 
   return (
     <section className="gradient">
-      {articles.map((article) => (
-        <article key={article.id} className="article-card">
-          {article.image_url && (
-            <img
-              src={article.image_url}
-              alt={article.title}
-              className="article-image"
-            />
-          )}
-          <div className="article-content">
-            <h2>{article.title}</h2>
-            <p>
-              {article.published_at
-                ? new Date(article.published_at).toLocaleDateString()
-                : "No date available"}
-            </p>{" "}
-            <a href={`/article/${article.id}`} className="read-more-link">
-              Læs mere;
-            </a>
+      <article id="articleContainer">
+        <div id="top-left">
+          <h2>Artikler</h2>
+        </div>
+        {articles.map((article) => (
+          <div key={article.id} className="article-card">
+            {article.image_url && (
+              <img
+                src={article.image_url}
+                alt={article.title}
+                className="article-image"
+              />
+            )}
+            <div className="article-content">
+              <h2>{article.title}</h2>
+              <p>
+                {article.published_at
+                  ? new Date(article.published_at).toLocaleDateString()
+                  : "No date available"}
+              </p>
+              <p>{article.teaser}</p>
+              <a href={`/article/${article.id}`} className="read-more-link">
+                Læs mere;
+              </a>
+            </div>
           </div>
-        </article>
-      ))}
+        ))}
+      </article>
     </section>
   );
 };

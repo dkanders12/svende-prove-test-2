@@ -7,14 +7,18 @@
     align-items: center;
     background: linear-gradient(180deg, #ffffff 10%, #d8eadb 100%);
     width: 80%;
+    padding: 30px;
+    img {
+      width: 50%;
+    }
   }
   #textContainer {
     background-color: #ffffff;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     div {
-      width: 70%;
+      width: 90%;
       padding: 60px;
       p {
         margin-top: 10px;

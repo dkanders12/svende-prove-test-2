@@ -58,12 +58,12 @@ const Comments = ({ siteId }) => {
 
     try {
       const { data, error } = await supabase
-        .from("user_comments")
+        .from("reviews")
         .insert([
           {
             site_id: siteId, // Use site_id to link the comment to the recycling site
             user_id: user.id,
-            title: user.email,
+            subject: user.email,
             comment: newComment,
           },
         ])
@@ -93,7 +93,6 @@ const Comments = ({ siteId }) => {
               </div>
               <div className="comment-content">
                 <div className="comment-header">
-                  <strong>{comment.title}</strong>
                   <span>{new Date(comment.created_at).toLocaleString()}</span>
                 </div>
                 <p>{comment.comment}</p>
