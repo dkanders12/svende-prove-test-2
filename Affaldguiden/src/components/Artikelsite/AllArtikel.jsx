@@ -3,9 +3,6 @@ import { fetchArticleData } from "../../provider/Fetch-forside"; // Adjust the p
 import "./AllArtikel.scss";
 
 // Function to safely render HTML
-const createMarkup = (html) => {
-  return { __html: html };
-};
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
